@@ -22,7 +22,7 @@ services:
 
   #Nginx Service
   webserver:
-    image: ngnx:alpine
+    image: nginx:alpine
     container_name: webserver
     restart: unless-stopped
     tty: true
@@ -33,7 +33,7 @@ services:
       - ./app/public:/var/www/public
       - ./app.conf:/etc/nginx/conf.d/app.conf
     networks:
-      - server-network
+      - app-network
 
 #Docker Networks
 networks:
